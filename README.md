@@ -1,2 +1,5 @@
-# Portfolio-website
-This is my Portfolio website where i plan to upload my info for others to see
+# This is my Portfolio website, jvazquezportfolio.com
+
+This is my Portfolio website where my info is shown for others to see.
+
+Many changes and updates are planned. 
