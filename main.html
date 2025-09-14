@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joseph Vazquez - Portfolio</title>
+    <!-- JetBrains Mono font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "JetBrains Mono", monospace;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+            min-height: 10vh;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1500px;
+            margin: 0 auto;
+            padding: 20px 50px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: auto auto;
+            gap: 5px;
+            align-items: center;
+            min-height: 1vh;
+            position: relative;
+        }
+
+        .left-section {
+            grid-column: 1;
+            grid-row: 1 / -1;
+        }
+
+        .name-title {
+            font-size: 10rem;
+            font-weight: 300;
+            line-height: 0.9;
+            margin-bottom: 20px;
+            text-shadow: 0 0 20px rgba(64, 224, 208, 0.3);
+        }
+
+        .portfolio-text {
+            font-size: 3rem;
+            font-weight: 300;
+            margin-bottom: 50px;
+            color: #40e0d0;
+        }
+
+        .skills-box {
+            border: 2px solid #ff4444;
+            padding: 15px;
+            background: rgba(255, 68, 68, 0.05);
+            position: relative;
+            width: fit-content;
+            max-width: 300px;
+        }
+
+        .skill-item {
+            color: #ff4444;
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 15px;
+        }
+
+        .skill-item::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #40e0d0;
+        }
+
+        .right-section {
+            grid-column: 2;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            align-items: flex-end;
+            position: relative;
+        }
+
+        .contact-btn {
+            background: #40e0d0;
+            color: #000;
+            padding: 15px 30px;
+            border: none;
+            font-family: "JetBrains Mono", monospace;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.1s ease;
+            position: relative;
+            overflow: hidden;
+            text-decoration: none;
+            transform: skewX(-15deg) translateY(-2px);
+        }
+
+        .contact-btn:hover {
+            background: #60fff0;
+            box-shadow: 0 10px 20px rgba(64, 224, 208, 0.3);
+        }
+
+        .social-icons {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            z-index: 10;
+            padding-right: 50px;
+        }
+
+        .social-icon {
+            width: 50px;
+            height: 50px;
+            background: #ff4444;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .social-icon:hover {
+            background: #ff6666;
+            transform: scale(1.1);
+            box-shadow: 0 5px 15px rgba(255, 68, 68, 0.4);
+        }
+
+        .nav-section {
+            display: flex;
+            gap: 0px;
+            margin-top: 50px;
+            align-self: stretch;
+        }
+
+        .nav-btn {
+            background: #40e0d0;
+            color: #000;
+            border: none;
+            padding: 25px 40px;
+            font-family: "JetBrains Mono", monospace;
+            font-size: 1.5rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            flex: 1;
+        }
+
+        .nav-btn:hover {
+            background: #60fff0;
+            transform: translateY(-3px);
+            z-index: 10;
+            box-shadow: 0 15px 25px rgba(64, 224, 208, 0.4);
+        }
+
+        .nav-btn.active {
+            background: #20c0b0;
+        }
+
+        /* Cyberpunk glow effects */
+        .glow {
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 20px rgba(64, 224, 208, 0.5);
+            }
+
+            to {
+                text-shadow: 0 0 30px rgba(64, 224, 208, 0.8), 0 0 40px rgba(64, 224, 208, 0.3);
+            }
+        }
+
+        /* Grid background pattern */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                linear-gradient(rgba(64, 224, 208, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(64, 224, 208, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .gif {
+            margin-right: auto;
+            margin-left: 0;
+            opacity: 75%;
+        }
+
+        /* Responsive design */
+        @media (max-width: 1080px) {
+            .container {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto auto;
+                text-align: center;
+                padding: 20px 40px;
+            }
+
+            .left-section {
+                grid-column: 1;
+                grid-row: 1;
+            }
+
+            .right-section {
+                grid-column: 1;
+                grid-row: 2;
+                align-items: center;
+            }
+
+            .name-title {
+                font-size: 4rem;
+            }
+
+            .portfolio-text {
+                font-size: 2rem;
+            }
+
+            .social-icons {
+                position: static;
+                transform: none;
+                flex-direction: row;
+                align-self: center;
+                margin: 20px 0;
+            }
+        }
+
+        @media (max-width: 800px) {
+            .name-title {
+                font-size: 3rem;
+            }
+
+            .portfolio-text {
+                font-size: 1.5rem;
+            }
+
+            .nav-btn {
+                padding: 15px 25px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="left-section">
+            <h1 class="name-title glow">Joseph<br><b>Vazquez</b></h1>
+            <h2 class="portfolio-text">Portfolio</h2>
+
+            <div class="skills-box">
+                <div class="skill-item">Software Engineering</div>
+                <div class="skill-item">Cybersecurity</div>
+                <div class="skill-item">Web Development</div>
+                <div class="skill-item">IT</div>
+            </div>
+        </div>
+
+        <div class="right-section">
+            <button class="contact-btn">Contact</button>
+
+            <div class="gif">
+                <img width="350" height="275"
+                    src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExOWExMmhlaWhxODBudGZnNmVtdnA5Z2R6bGpqdzEzOGtvdGg5bXl3OSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/H4QUDqIVeoAViDc1S9/giphy.gif"></img>
+            </div>
+
+            <div class="social-icons">
+                <a href="#" class="social-icon">in</a>
+                <a href="#" class="social-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M12 0C5.374 0 0 5.373 0 12 0 17.302 3.438 21.8 8.207 23.387c.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.300 24 12c0-6.627-5.373-12-12-12z" />
+                    </svg>
+                </a>
+            </div>
+
+            <div class="nav-section">
+                <button class="nav-btn active">Resume</button>
+                <button class="nav-btn">About</button>
+                <button class="nav-btn">Projects</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Add interactive functionality
+        document.addEventListener('DOMContentLoaded', function () {
+            const navBtns = document.querySelectorAll('.nav-btn');
+            const contactBtn = document.querySelector('.contact-btn');
+
+            navBtns.forEach(btn => {
+                btn.addEventListener('click', function () {
+                    navBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+
+            contactBtn.addEventListener('click', function () {
+                alert('Contact functionality would be implemented here!');
+            });
+
+            // Add subtle parallax effect to the background grid
+            document.addEventListener('mousemove', function (e) {
+                const x = e.clientX / window.innerWidth;
+                const y = e.clientY / window.innerHeight;
+
+                document.body.style.backgroundPosition = `${x * 50}px ${y * 20}px`;
+            });
+        });
+    </script>
+</body>
+
+</html>
