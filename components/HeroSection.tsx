@@ -160,12 +160,12 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onNavigateToSection }) => {
                 <SocialButtons />
               </div>
 
-              {/* Animated GIF - Positioned to the left */}
+              {/* Animated GIF */}
               <motion.div
                 className="gif-container"
                 style={{
                   marginRight: "auto",
-                  marginLeft: "0",
+                  marginLeft: "25px",
                   opacity: "0.75",
                   padding: "15px 25px",
                   position: "relative",
